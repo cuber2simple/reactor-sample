@@ -1,0 +1,70 @@
+spring:
+  application:
+    name: base
+
+  jackson:
+    serialization:
+      indent_output: true
+      fail_on_empty_beans: false
+      write_dates_as_timestamps: false
+    deserialization:
+      fail_on_unknown_properties: false
+      accept_empty_string_as_null_object: true
+    defaultPropertyInclusion: NON_NULL
+    parser:
+      allow_unquoted_control_chars: true
+      allow_single_quotes: true
+  data:
+    redis:
+      host: 127.0.0.1
+      password: kid1412C
+      port: 6379
+      database: 1
+
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/${postgresql.database}
+    username: ${postgresql.username}
+    password: ${postgresql.password}
+    pool:
+      max-size: 20
+      min-idle: 10
+      validation-query: select 1
+      max-create-connection-time: 30s
+
+postgresql:
+  username: exchange
+  password: exchange
+  database: exchange
+
+management:
+  endpoints:
+    enabled-by-default: false
+  endpoint:
+    health:
+      show-details: never
+      enabled: true
+  tracing:
+    baggage:
+      remote-fields:
+        - x-identifier
+        - x-member-id
+        - x-ip
+        - x-token
+        - x-language
+        - x-timezone-id
+        - x-request-id
+      correlation:
+        fields:
+          - x-identifier
+          - x-member-id
+          - x-ip
+          - x-token
+          - x-language
+          - x-timezone-id
+          - x-request-id
+
+logging:
+  level:
+    org.springframework.web.filter.CommonsRequestLoggingFilter: debug
+    io.r2dbc.postgresql.QUERY: debug
+    io.r2dbc.postgresql.PARAM: debug
