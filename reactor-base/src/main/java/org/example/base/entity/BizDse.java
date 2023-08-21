@@ -21,11 +21,6 @@ public class BizDse {
 
     @Id
     private Long id;
-    /**
-     * 加密的code
-     */
-    @Column("dse_key")
-    private String dseKey;
 
     /**
      * 原始报文的sha256值
@@ -65,7 +60,6 @@ public class BizDse {
      */
     @Column("message")
     private String message;
-
 
     /**
      * 加密完成的完成时间

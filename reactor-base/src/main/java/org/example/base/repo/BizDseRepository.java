@@ -14,7 +14,5 @@ import reactor.core.publisher.Mono;
  */
 public interface BizDseRepository extends ReactiveCrudRepository<BizDse, Long> {
     Mono<BizDse> findByAlgorithmAndOriginSha256AndOriginLength(String algorithm, String originSha256, Long originLength);
-
-    Mono<BizDse> findByDseKey(String dseKey);
 }
 

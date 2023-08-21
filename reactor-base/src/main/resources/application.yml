@@ -22,7 +22,7 @@ spring:
       database: 1
 
   r2dbc:
-    url: r2dbc:postgresql://localhost:5432/${postgresql.database}
+    url: r2dbc:postgresql://127.0.0.1:5432/${postgresql.database}
     username: ${postgresql.username}
     password: ${postgresql.password}
     pool:
@@ -32,9 +32,9 @@ spring:
       max-create-connection-time: 30s
 
 postgresql:
-  username: exchange
-  password: exchange
-  database: exchange
+  username: base
+  password: base
+  database: base
 
 management:
   endpoints:

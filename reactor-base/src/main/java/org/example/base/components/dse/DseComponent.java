@@ -22,7 +22,6 @@ public class DseComponent {
 
     private final DseAlgorithmRepository dseAlgorithmRepository;
 
-
     private static final ConcurrentHashMap<String, BaseDseService> CACHE_BASE_DSE_MAP = new ConcurrentHashMap<>();
 
     @EventListener
